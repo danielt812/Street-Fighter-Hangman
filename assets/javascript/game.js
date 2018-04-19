@@ -1,7 +1,107 @@
+//OBJECTS
+//=================================================================
+var balrog = 
+{
+    "name": "balrog",
+    "image": "balrogsprite.gif",
+}
+
+var blanka = 
+{
+    "name": "blanka",
+    "image": "blankasprite.gif",
+}
+
+var cammy = 
+{
+    "name": "cammy",
+    "image": "cammysprite.gif",
+}
+
+var chunLi = 
+{
+    "name": "chun li",
+    "image": "chunlisprite.gif",
+}
+
+var deeJay = 
+{
+    "name": "dee jay",
+    "image": "deejaysprite.gif",
+}
+
+var dhalsim = 
+{
+    "name": "dhalsim",
+    "image": "dhalsimsprite.gif",
+}
+
+var eHonda = 
+{
+    "name": "e honda",
+    "image": "ehondasprite.gif",
+}
+
+var feiLong = 
+{
+    "name": "fei long",
+    "image": "feilongsprite.gif",
+}
+
+var guile = 
+{
+    "name": "guile",
+    "image": "guilesprite.gif",
+}
+
+var ken = 
+{
+    "name": "ken",
+    "image": "kensprite.gif",
+}
+
+var mbison = 
+{
+    "name": "mbison",
+    "image": "mbisonsprite.gif",
+}
+
+var ryu = 
+{
+    "name": "ryu",
+    "image": "ryusprite.gif",
+}
+
+var sagat = 
+{
+    "name": "sagat",
+    "image": "sagatsprite.gif",
+}
+
+var thawk = 
+{
+    "name": "t hawk",
+    "image": "thawksprite.gif",
+}
+
+var vega = 
+{
+    "name": "vega",
+    "image": "vegasprite.gif",
+}
+
+var zangief = 
+{
+    "name": "zangief",
+    "image": "zangiefsprite.gif",
+}
+
+
 //GLOBAL VARIABLES
 //================================================================
-var wordBank = ['balrog', 'blanka', 'cammy', 'chun li', 'deejay', 'dhalsim', 'ehonda', 'fei long', 'guile', 'ken', 'm bison', 'ryu', 'sagat', 't hawk', 'vega', 'zangief'];
+var wordBank = [balrog, blanka, cammy, chunLi, deeJay, dhalsim, eHonda, feiLong, guile, ken, mbison, ryu, sagat, thawk, vega, zangief];
 var wins = 0;
+var randWordName = '';
 var randWord = '';
 var guessesLeft = randWord.length + 3;
 var underScore = [];
@@ -13,21 +113,26 @@ var userWrongGuess = [];
 //This function will be used to start game and reset counters/arrays
 function main() {
 
-     //Choose a word at random from wordBank.
-     randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-     console.log(randWord)
+    //Choose a word at random from wordBank.
+    randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+    console.log(randWord)
+    randWordName = randWord.name
+    console.log(randWordName)
+    
+     
+     
 
     //These variables will be reset to their original value after win/loss.
-    guessesLeft = randWord.length + 3;
+    guessesLeft = randWordName.length + 3;
     userGuess = [];
     userWrongGuess = [];
     underScore = [];
 
     //Create underscores based on length of random word with for loop.
-    for (var i = 0; i < randWord.length; i++) 
+    for (var i = 0; i < randWordName.length; i++) 
     {
         //This if/else statement will make sure spaces in wordBank do not get underscore value.
-        if (randWord[i] === " ")
+        if (randWordName[i] === " ")
         {
             underScore.push(" ");
         }
@@ -52,13 +157,13 @@ function compareUserInput(letter) {
         //If letter chosen is not in userGuess array, push letter into userGuess.
         userGuess.push(letter);
         //Use For loop to check if index of randWord matches letter input choosen.
-        for (var i = 0; i < randWord.length; i++)
+        for (var i = 0; i < randWordName.length; i++)
         {
             //Convert user input to lowercase incase they use capital letters.
-            if(randWord[i] === letter.toLowerCase())
+            if(randWordName[i] === letter.toLowerCase())
             {
                 //If index of underScore matches letter user inputs, then change value of underscore to letter of random assigned word.
-                underScore[i] = randWord[i];
+                underScore[i] = randWordName[i];
             }
         }
         //Push changes from js to html.
@@ -93,16 +198,32 @@ function wrongGuess(letter)
 function checkWinLoss() {
     //If randWord matches values of underScore after being converted to userGuess, give user a win.
     //.join used to treat underScore array as a string.
-    if (randWord.toLowerCase() === underScore.join('').toLowerCase())
+    if (randWordName.toLowerCase() === underScore.join('').toLowerCase())
     {
         wins++;
         document.getElementById("gameWins").textContent = wins;
+        objImages();
         main();
     }
     //If user guesses drops to 0 reset game.
     else if (guessesLeft === 0) {
         main();
     }
+}
+
+//This function will add an image to html when called on
+function objImages (){
+    //Grab reference to element in html
+    var objImageDiv = document.getElementById("objImage");
+    //Remove original image in this div
+    objImageDiv.innerHTML = '';
+    //Manipulate DOM to create image tag in html
+    var imageElement = document.createElement("img");
+    imageElement.src = 'assets/images/' + randWord.image;
+    imageElement.className = 'img-responsive objImageGif1';
+    imageElement.alt = randWord.name;
+    //Append image to html
+    objImageDiv.appendChild(imageElement)
 }
 
 //Onkeyup function will pass to letter input argument to compareUserInput parameter.
