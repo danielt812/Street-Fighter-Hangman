@@ -4,96 +4,112 @@ var balrog =
 {
     "name": "balrog",
     "image": "balrogsprite.gif",
+    "sound": "balrogmusic.mp3",
 }
 
 var blanka = 
 {
     "name": "blanka",
     "image": "blankasprite.gif",
+    "sound": "blankamusic.mp3",
 }
 
 var cammy = 
 {
     "name": "cammy",
     "image": "cammysprite.gif",
+    "sound": "cammymusic.mp3",
 }
 
 var chunLi = 
 {
     "name": "chun li",
     "image": "chunlisprite.gif",
+    "sound": "chunlisound.mp3",
 }
 
 var deeJay = 
 {
     "name": "dee jay",
     "image": "deejaysprite.gif",
+    "sound": "deejaysound.mp3",
 }
 
 var dhalsim = 
 {
     "name": "dhalsim",
     "image": "dhalsimsprite.gif",
+    "sound": "dhalsimsound.mp3",
 }
 
 var eHonda = 
 {
     "name": "e honda",
     "image": "ehondasprite.gif",
+    "sound": "ehondasound.mp3",
 }
 
 var feiLong = 
 {
     "name": "fei long",
     "image": "feilongsprite.gif",
+    "sound": "feilongsound.mp3",
 }
 
 var guile = 
 {
     "name": "guile",
     "image": "guilesprite.gif",
+    "sound": "guilesound.mp3",
 }
 
 var ken = 
 {
     "name": "ken",
     "image": "kensprite.gif",
+    "sound": "kensound.mp3",
 }
 
 var mbison = 
 {
     "name": "mbison",
     "image": "mbisonsprite.gif",
+    "sound": "mbisonsound.mp3",
 }
 
 var ryu = 
 {
     "name": "ryu",
     "image": "ryusprite.gif",
+    "sound": "ryusound.mp3",
 }
 
 var sagat = 
 {
     "name": "sagat",
     "image": "sagatsprite.gif",
+    "sound": "sagatsound.mp3",
 }
 
 var thawk = 
 {
     "name": "t hawk",
     "image": "thawksprite.gif",
+    "sound": "thawksound.mp3",
 }
 
 var vega = 
 {
     "name": "vega",
     "image": "vegasprite.gif",
+    "sound": "vegasound.mp3",
 }
 
 var zangief = 
 {
     "name": "zangief",
     "image": "zangiefsprite.gif",
+    "sound": "zangiefsound.mp3",
 }
 
 
@@ -111,13 +127,13 @@ var userWrongGuess = [];
 //FUNCTIONS
 //=================================================================
 //This function will be used to start game and reset counters/arrays
-function main() {
+function main() 
+{
 
     //Choose a word at random from wordBank.
     randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-    console.log(randWord)
-    randWordName = randWord.name
-    console.log(randWordName)
+    randWordName = randWord.name;
+    console.log(randWordName);
     
      
      
@@ -137,7 +153,7 @@ function main() {
             underScore.push(" ");
         }
         else {
-            underScore.push("_");
+            underScore.push(" _ ");
         }
     }
     //Push changes from js to html.
@@ -149,7 +165,8 @@ function main() {
 }
 
 //This function will be used to compare userGuess to randWord.
-function compareUserInput(letter) {
+function compareUserInput(letter) 
+{
     console.log(letter);
     //This if statement will make sure that letters pressed more than once in a round won't count against user.
     if (userGuess.indexOf(letter) === -1)
@@ -195,7 +212,8 @@ function wrongGuess(letter)
 }
 
 //This function checks whether we meet our win or loss condition.
-function checkWinLoss() {
+function checkWinLoss() 
+{
     //If randWord matches values of underScore after being converted to userGuess, give user a win.
     //.join used to treat underScore array as a string.
     if (randWordName.toLowerCase() === underScore.join('').toLowerCase())
@@ -203,6 +221,7 @@ function checkWinLoss() {
         wins++;
         document.getElementById("gameWins").textContent = wins;
         objImages();
+        objSound();
         main();
     }
     //If user guesses drops to 0 reset game.
@@ -212,7 +231,8 @@ function checkWinLoss() {
 }
 
 //This function will add an image to html when called on
-function objImages (){
+function objImages()
+{
     //Grab reference to element in html
     var objImageDiv = document.getElementById("objImage");
     //Remove original image in this div
@@ -220,11 +240,24 @@ function objImages (){
     //Manipulate DOM to create image tag in html
     var imageElement = document.createElement("img");
     imageElement.src = 'assets/images/' + randWord.image;
-    imageElement.className = 'img-responsive objImageGif1';
+    imageElement.className = 'img-responsive imgGif';
     imageElement.alt = randWord.name;
     //Append image to html
     objImageDiv.appendChild(imageElement)
 }
+
+function objSound()
+{
+    var audio = document.createElement('audio');
+    audio.style.display = "none";
+    console.log(randWord.sound);
+    audio.src = randWord.sound;
+    audio.autoplay = true;
+    audio.onended = function(){
+      audio.remove() //Remove when played.
+    };
+    document.body.appendChild(audio);
+  }
 
 //Onkeyup function will pass to letter input argument to compareUserInput parameter.
 document.onkeyup = function(event) {

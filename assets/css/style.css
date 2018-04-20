@@ -1,0 +1,54 @@
+@font-face {
+    font-family: sf_font;
+    src: url(../fonts/sf_font.ttf);
+}
+
+body {
+    font-family: sf_font;
+    background-color: black;
+}
+
+.imgGif {
+    height: 400px;
+    margin-top: 30rpx;
+}
+
+
+h1 {
+    margin-top: 30px;
+    color: white;
+}
+
+h2 {
+    font-size: 20px;
+    background: linear-gradient(yellow, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+    margin-top: 30px;
+
+}
+
+#logo {
+    margin-top: 20px;
+}
+
+#gameWins {
+    color: white;
+    margin-top: 14px;
+}
+
+#currentWord {
+    color: white;
+    margin-top: 14px;
+}
+
+#guessesRemaining {
+    color: white;
+    margin-top: 14px;
+}
+
+#wrongGuess {
+    color: white;
+    margin-top: 14px;
+}
