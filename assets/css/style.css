@@ -3,14 +3,18 @@
     src: url(../fonts/sf_font.ttf);
 }
 
+.container{
+    margin-top:5%;
+}
+
 body {
     font-family: sf_font;
-    background-color: black;
+    background-color: black;    
 }
 
 .imgGif {
     height: 400px;
-    margin-top: 30rpx;
+    margin-top: 20px;
 }
 
 

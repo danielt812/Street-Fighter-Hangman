@@ -25,91 +25,91 @@ var chunLi =
 {
     "name": "chun li",
     "image": "chunlisprite.gif",
-    "sound": "chunlisound.mp3",
+    "sound": "chunlimusic.mp3",
 }
 
 var deeJay = 
 {
     "name": "dee jay",
     "image": "deejaysprite.gif",
-    "sound": "deejaysound.mp3",
+    "sound": "deejaymusic.mp3",
 }
 
 var dhalsim = 
 {
     "name": "dhalsim",
     "image": "dhalsimsprite.gif",
-    "sound": "dhalsimsound.mp3",
+    "sound": "dhalsimmusic.mp3",
 }
 
 var eHonda = 
 {
     "name": "e honda",
     "image": "ehondasprite.gif",
-    "sound": "ehondasound.mp3",
+    "sound": "ehondamusic.mp3",
 }
 
 var feiLong = 
 {
     "name": "fei long",
     "image": "feilongsprite.gif",
-    "sound": "feilongsound.mp3",
+    "sound": "feilongmusic.mp3",
 }
 
 var guile = 
 {
     "name": "guile",
     "image": "guilesprite.gif",
-    "sound": "guilesound.mp3",
+    "sound": "guilemusic.mp3",
 }
 
 var ken = 
 {
     "name": "ken",
     "image": "kensprite.gif",
-    "sound": "kensound.mp3",
+    "sound": "kenmusic.mp3",
 }
 
 var mbison = 
 {
     "name": "mbison",
     "image": "mbisonsprite.gif",
-    "sound": "mbisonsound.mp3",
+    "sound": "mbisonmusic.mp3",
 }
 
 var ryu = 
 {
     "name": "ryu",
     "image": "ryusprite.gif",
-    "sound": "ryusound.mp3",
+    "sound": "ryumusic.mp3",
 }
 
 var sagat = 
 {
     "name": "sagat",
     "image": "sagatsprite.gif",
-    "sound": "sagatsound.mp3",
+    "sound": "sagatmusic.mp3",
 }
 
 var thawk = 
 {
     "name": "t hawk",
     "image": "thawksprite.gif",
-    "sound": "thawksound.mp3",
+    "sound": "thawkmusic.mp3",
 }
 
 var vega = 
 {
     "name": "vega",
     "image": "vegasprite.gif",
-    "sound": "vegasound.mp3",
+    "sound": "vegamusic.mp3",
 }
 
 var zangief = 
 {
     "name": "zangief",
     "image": "zangiefsprite.gif",
-    "sound": "zangiefsound.mp3",
+    "sound": "zangiefmusic.mp3",
 }
 
 
@@ -232,7 +232,7 @@ function checkWinLoss()
 
 //This function will add an image to html when called on
 function objImages()
-{
+{   
     //Grab reference to element in html
     var objImageDiv = document.getElementById("objImage");
     //Remove original image in this div
@@ -246,18 +246,38 @@ function objImages()
     objImageDiv.appendChild(imageElement)
 }
 
+//This function will play music after a win condition is met.
 function objSound()
-{
-    var audio = document.createElement('audio');
-    audio.style.display = "none";
-    console.log(randWord.sound);
-    audio.src = randWord.sound;
-    audio.autoplay = true;
-    audio.onended = function(){
-      audio.remove() //Remove when played.
-    };
-    document.body.appendChild(audio);
-  }
+{   
+    //Grab reference to element in html
+    var objaudiodiv = document.getElementById("objSound");
+    //Create an audio element in html
+    var audioElement = document.createElement("audio");
+    // Trying to get js to only play one audio file at a time so songs don't overlap.
+    // Here is pseudo code that I tried. Any suggestions?
+    //================================================================================
+    // if (audioElement.play())
+    // {
+    //     audioElement.pause();
+    //     audioElement.src = 'assets/sounds/' + randWord.sound;
+    //     audioElement.play();
+    // }
+    // else
+    // {
+    //     audioElement.pause();
+    //     audioElement.src = 'assets/sounds/' + randWord.sound;
+    //     audioElement.play();
+    // }
+    //==================================================================================
+    //Link sound file to object
+    audioElement.src = 'assets/sounds/' + randWord.sound;
+    //Set autoplay to true
+    audioElement.autoplay = true;
+    //Append variable to html
+    objaudiodiv.appendChild(audioElement)
+}
+
+
 
 //Onkeyup function will pass to letter input argument to compareUserInput parameter.
 document.onkeyup = function(event) {
