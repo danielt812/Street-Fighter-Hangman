@@ -24,13 +24,19 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
-    background: linear-gradient(yellow, red);
+    font-size: 30px;
+    background: linear-gradient(yellow, yellow, red, red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 10px;
     margin-top: 30px;
+}
 
+#restart:hover {
+    cursor: pointer;
+    background: linear-gradient(white, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #logo {

@@ -116,6 +116,7 @@ var zangief =
 //GLOBAL VARIABLES
 //================================================================
 var wordBank = [balrog, blanka, cammy, chunLi, deeJay, dhalsim, eHonda, feiLong, guile, ken, mbison, ryu, sagat, thawk, vega, zangief];
+var totalWordBankLength = wordBank.length;
 var wins = 0;
 var randWordName = '';
 var randWord = '';
@@ -196,8 +197,7 @@ function wrongGuess(letter)
     //Need to make sure lowercase and uppercase value of userGuess is treated the same.
     if (underScore.indexOf(letter.toLowerCase()) === -1 
         && 
-        underScore.indexOf(letter.toUpperCase()) === -1
-        ) 
+        underScore.indexOf(letter.toUpperCase()) === -1) 
     {
         //Decrease user guesses by one.
         guessesLeft--;
@@ -222,7 +222,21 @@ function checkWinLoss()
         document.getElementById("gameWins").textContent = wins;
         objImages();
         objSound();
+        var completedWord = wordBank.indexOf(randWord)
+        //Removes completed words from wordBank
+        wordBank.splice(completedWord, 1);
+        console.log(wordBank);
+        if(wins == totalWordBankLength)
+        {
+            setTimeout(function()
+            {
+                restart();
+            }, 5000);
+        }
+        else
+        {
         main();
+        }
     }
     //If user guesses drops to 0 reset game.
     else if (guessesLeft === 0) {
@@ -277,8 +291,24 @@ function objSound()
     objaudiodiv.appendChild(audioElement)
 }
 
+function restart()
+{
+    //Grab reference to html
+    var objImageDiv = document.getElementById("objImage");
+    //Manipulate DOM to create restart button
+    var restartButton = document.createElement("h2");
+    restartButton.setAttribute("id", "restart");
+    restartButton.textContent = "Play Again?"
+    restartButton.addEventListener("click", function()
+    {
+        window.location.reload()
+    })
+    //Append div to html
+    objImageDiv.appendChild(restartButton)
+}
 
-
+//EVENT HANDLERS
+//===================================================================
 //Onkeyup function will pass to letter input argument to compareUserInput parameter.
 document.onkeyup = function(event) {
     //Only stores values from A to Z
