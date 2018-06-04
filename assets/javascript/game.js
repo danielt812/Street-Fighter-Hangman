@@ -264,31 +264,11 @@ function objImages()
 function objSound()
 {   
     //Grab reference to element in html
-    var objaudiodiv = document.getElementById("objSound");
-    //Create an audio element in html
-    var audioElement = document.createElement("audio");
-    // Trying to get js to only play one audio file at a time so songs don't overlap.
-    // Here is pseudo code that I tried. Any suggestions?
-    //================================================================================
-    // if (audioElement.play())
-    // {
-    //     audioElement.pause();
-    //     audioElement.src = 'assets/sounds/' + randWord.sound;
-    //     audioElement.play();
-    // }
-    // else
-    // {
-    //     audioElement.pause();
-    //     audioElement.src = 'assets/sounds/' + randWord.sound;
-    //     audioElement.play();
-    // }
-    //==================================================================================
+    var audioElement = document.getElementById("objSound");
     //Link sound file to object
     audioElement.src = 'assets/sounds/' + randWord.sound;
     //Set autoplay to true
     audioElement.autoplay = true;
-    //Append variable to html
-    objaudiodiv.appendChild(audioElement)
 }
 
 function restart()
