@@ -72,7 +72,7 @@ var ken =
 
 var mbison = 
 {
-    "name": "mbison",
+    "name": "m bison",
     "image": "mbisonsprite.gif",
     "sound": "mbisonmusic.mp3",
 }
@@ -120,7 +120,7 @@ var totalWordBankLength = wordBank.length;
 var wins = 0;
 var randWordName = '';
 var randWord = '';
-var guessesLeft = randWord.length + 3;
+var guessesLeft = randWord.length;
 var underScore = [];
 var userGuess = [];
 var userWrongGuess = [];
@@ -235,7 +235,10 @@ function checkWinLoss()
         }
         else
         {
-        main();
+            setTimeout(function()
+            {
+                main();
+            }, 3000);
         }
     }
     //If user guesses drops to 0 reset game.
@@ -274,9 +277,9 @@ function objSound()
 function restart()
 {
     //Grab reference to html
-    var objImageDiv = document.getElementById("objImage");
+    var objImageDiv = document.getElementById("restart");
     //Manipulate DOM to create restart button
-    var restartButton = document.createElement("h2");
+    var restartButton = document.createElement("h1");
     restartButton.setAttribute("id", "restart");
     restartButton.textContent = "Play Again?"
     restartButton.addEventListener("click", function()

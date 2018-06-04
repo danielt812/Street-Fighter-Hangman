@@ -13,7 +13,7 @@ body {
 }
 
 .imgGif {
-    height: 400px;
+    height: 450px;
     margin-top: 20px;
 }
 
@@ -25,6 +25,14 @@ h1 {
 
 h2 {
     font-size: 30px;
+    background: linear-gradient(yellow, yellow, red, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+#restart {
     background: linear-gradient(yellow, yellow, red, red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
