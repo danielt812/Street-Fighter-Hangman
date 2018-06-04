@@ -14,7 +14,7 @@ body {
 
 .imgGif {
     height: 450px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 
@@ -54,19 +54,24 @@ h2 {
 #gameWins {
     color: white;
     margin-top: 14px;
+    font-size: 26px;
 }
 
 #currentWord {
     color: white;
     margin-top: 14px;
+    font-size: 26px;
+    letter-spacing: 2px;
 }
 
 #guessesRemaining {
     color: white;
     margin-top: 14px;
+    font-size: 26px;
 }
 
 #wrongGuess {
     color: white;
     margin-top: 14px;
+    font-size: 26px;
 }
