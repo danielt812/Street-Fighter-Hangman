@@ -140,7 +140,7 @@ function main()
      
 
     //These variables will be reset to their original value after win/loss.
-    guessesLeft = randWordName.length + 3;
+    guessesLeft = randWordName.length + 1;
     userGuess = [];
     userWrongGuess = [];
     underScore = [];
