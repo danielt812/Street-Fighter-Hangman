@@ -2,6 +2,7 @@
 
 Simple hangman game using vanilla JavaScript (no jQuery).
 <br>
+<br>
 Highlights:
 <ul>
   <li>Use of HTML audio when a guess is correct</li>
