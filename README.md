@@ -1,4 +1,4 @@
-# Word-Guess-Game
+# Street-Fighter themed hangman game
 
 Simple hangman game using vanilla JavaScript (no jQuery).
 <br>
