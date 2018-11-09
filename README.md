@@ -1,6 +1,9 @@
 # Street-Fighter themed hangman game
 
-Simple hangman game using vanilla JavaScript (no jQuery).
+Hangman game built with vanilla JavaScript.
+<br>
+<br>
+Technologies used: HTML, CSS, JavaScript
 <br>
 <br>
 Highlights:
