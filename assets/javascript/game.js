@@ -7,6 +7,8 @@ function Fighter(display, name, image, sound) {
     (this.sound = sound);
 }
 
+var akuma = new Fighter("akuma", "akuma", "akumasprite.gif", "akumamusic.mp3");
+
 var balrog = new Fighter(
   "balrog",
   "balrog",
@@ -87,6 +89,7 @@ var zangief = new Fighter(
 // GLOBAL VARIABLES
 //================================================================
 var wordBank = [
+  akuma,
   balrog,
   blanka,
   cammy,
@@ -149,7 +152,6 @@ function main() {
 
 // This function will be used to compare userGuess to randWord.
 function compareUserInput(letter) {
-  console.log(letter);
   // This if statement will make sure that letters pressed more than once in a round won't count against user.
   if (userGuess.indexOf(letter) === -1) {
     // If letter chosen is not in userGuess array, push letter into userGuess.
@@ -204,7 +206,6 @@ function checkWinLoss() {
     var completedWord = wordBank.indexOf(randWord);
     // Removes completed words from wordBank
     wordBank.splice(completedWord, 1);
-    console.log(wordBank);
     // Three seconds until next word available, Five seconds after game ends
     if (wins == totalWordBankLength) {
       setTimeout(function() {
@@ -242,7 +243,7 @@ function objSound() {
   // Grab reference to element in html
   var audioElement = document.getElementById("objSound");
   // Link sound file to object
-  audioElement.src = "assets/sounds/" + randWord.sound;
+  audioElement.src = "assets/audio/" + randWord.sound;
   // Set autoplay to true
   audioElement.autoplay = true;
 }
@@ -253,7 +254,7 @@ function restart() {
   // Manipulate DOM to create restart button
   var restartButton = document.createElement("h1");
   restartButton.setAttribute("id", "restart");
-  restartButton.textContent = "Play Again?";
+  restartButton.textContent = "Play Again";
   restartButton.addEventListener("click", function() {
     restartButton.innerHTML = "";
     reset();
@@ -265,6 +266,7 @@ function restart() {
 
 function reset() {
   wordBank = [
+    akuma,
     balrog,
     blanka,
     cammy,
