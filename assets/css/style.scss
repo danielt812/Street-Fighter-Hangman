@@ -12,16 +12,22 @@ $reset: #ffffff;
 body {
   font-family: sf_font;
   background-color: black;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   margin-top: 30px;
   color: $reset;
+  line-height: inherit;
 }
 
 h2 {
   font-size: 30px;
+  line-height: inherit;
   background: linear-gradient($primary, $primary, $secondary, $secondary);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 10px;
@@ -59,6 +65,7 @@ h2 {
   :hover {
     cursor: pointer;
     background: linear-gradient($reset, $reset);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
