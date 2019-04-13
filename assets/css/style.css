@@ -16,7 +16,7 @@ h1 {
 h2 {
   font-size: 30px;
   line-height: inherit;
-  background: linear-gradient(#ffff00, #ffff00, #ff0000, #ff0000);
+  background: linear-gradient(#f8f403, #f8f403, #dd1226, #dd1226);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -42,7 +42,7 @@ h2 {
     align-items: center; }
 
 #restart {
-  background: linear-gradient(#ffff00, #ffff00, #ff0000, #ff0000);
+  background: linear-gradient(#f8f403, #f8f403, #dd1226, #dd1226);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 10px;
