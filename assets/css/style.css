@@ -43,6 +43,7 @@ h2 {
 
 #restart {
   background: linear-gradient(#f8f403, #f8f403, #dd1226, #dd1226);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 10px;
