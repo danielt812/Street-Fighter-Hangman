@@ -1,93 +1,45 @@
-// OBJECTS
-//=================================================================
+//*OBJECTS
+//*=================================================================
 function Fighter(display, name, image, sound) {
-  (this.display = display),
-    (this.name = name),
-    (this.image = image),
-    (this.sound = sound);
+  (this.display = display), (this.name = name), (this.image = image), (this.sound = sound);
 }
 
 var akuma = new Fighter('akuma', 'akuma', 'akumasprite.gif', 'akumamusic.mp3');
 
-var balrog = new Fighter(
-  'balrog',
-  'balrog',
-  'balrogsprite.gif',
-  'balrogmusic.mp3'
-);
+var balrog = new Fighter('balrog', 'balrog', 'balrogsprite.gif', 'balrogmusic.mp3');
 
-var blanka = new Fighter(
-  'blanka',
-  'blanka',
-  'blankasprite.gif',
-  'blankamusic.mp3'
-);
+var blanka = new Fighter('blanka', 'blanka', 'blankasprite.gif', 'blankamusic.mp3');
 
 var cammy = new Fighter('cammy', 'cammy', 'cammysprite.gif', 'cammymusic.mp3');
 
-var chunLi = new Fighter(
-  'chun li',
-  'chunli',
-  'chunlisprite.gif',
-  'chunlimusic.mp3'
-);
+var chunLi = new Fighter('chun li', 'chunli', 'chunlisprite.gif', 'chunlimusic.mp3');
 
-var deeJay = new Fighter(
-  'dee jay',
-  'deejay',
-  'deejaysprite.gif',
-  'deejaymusic.mp3'
-);
+var deeJay = new Fighter('dee jay', 'deejay', 'deejaysprite.gif', 'deejaymusic.mp3');
 
-var dhalsim = new Fighter(
-  'dhalsim',
-  'dhalsim',
-  'dhalsimsprite.gif',
-  'dhalsimmusic.mp3'
-);
+var dhalsim = new Fighter('dhalsim', 'dhalsim', 'dhalsimsprite.gif', 'dhalsimmusic.mp3');
 
-var eHonda = new Fighter(
-  'e honda',
-  'ehonda',
-  'ehondasprite.gif',
-  'ehondamusic.mp3'
-);
+var eHonda = new Fighter('e honda', 'ehonda', 'ehondasprite.gif', 'ehondamusic.mp3');
 
-var feiLong = new Fighter(
-  'fei long',
-  'feilong',
-  'feilongsprite.gif',
-  'feilongmusic.mp3'
-);
+var feiLong = new Fighter('fei long', 'feilong', 'feilongsprite.gif', 'feilongmusic.mp3');
 
 var guile = new Fighter('guile', 'guile', 'guilesprite.gif', 'guilemusic.mp3');
 
 var ken = new Fighter('ken', 'ken', 'kensprite.gif', 'kenmusic.mp3');
 
-var mBison = new Fighter(
-  'm bison',
-  'm bison',
-  'mbisonsprite.gif',
-  'mbisonmusic.mp3'
-);
+var mBison = new Fighter('m bison', 'mbison', 'mbisonsprite.gif', 'mbisonmusic.mp3');
 
 var ryu = new Fighter('ryu', 'ryu', 'ryusprite.gif', 'ryumusic.mp3');
 
 var sagat = new Fighter('sagat', 'sagat', 'sagatsprite.gif', 'sagatmusic.mp3');
 
-var thawk = new Fighter('t hawk', 'thawk', 'thawksprite.gif', 'thawkmusic.mp3');
+var tHawk = new Fighter('t hawk', 'tHawk', 'thawksprite.gif', 'thawkmusic.mp3');
 
 var vega = new Fighter('vega', 'vega', 'vegasprite.gif', 'vegamusic.mp3');
 
-var zangief = new Fighter(
-  'zangief',
-  'zangief',
-  'zangiefsprite.gif',
-  'zangiefmusic.mp3'
-);
+var zangief = new Fighter('zangief', 'zangief', 'zangiefsprite.gif', 'zangiefmusic.mp3');
 
-// GLOBAL VARIABLES
-//================================================================
+//*GLOBAL VARIABLES
+//*================================================================
 var wordBank = [
   akuma,
   balrog,
@@ -103,7 +55,7 @@ var wordBank = [
   mBison,
   ryu,
   sagat,
-  thawk,
+  tHawk,
   vega,
   zangief
 ];
@@ -117,9 +69,9 @@ var underScore = [];
 var userGuess = [];
 var userWrongGuess = [];
 
-// FUNCTIONS
-//=================================================================
-// This function will be used to start game and reset counters/arrays
+//*FUNCTIONS
+//*=================================================================
+// #This function will be used to start game and reset counters/arrays
 function main() {
   // Choose a word at random from wordBank.
   randWord = wordBank[Math.floor(Math.random() * wordBank.length)];
@@ -150,7 +102,7 @@ function main() {
   document.getElementById('gameWins').textContent = wins;
 }
 
-// This function will be used to compare userGuess to randWord.
+// #This function will be used to compare userGuess to randWord.
 function compareUserInput(letter) {
   // This if statement will make sure that letters pressed more than once in a round won't count against user.
   if (userGuess.indexOf(letter) === -1) {
@@ -165,15 +117,13 @@ function compareUserInput(letter) {
       }
     }
     // Push changes from js to html.
-    document.getElementById('currentWord').textContent = underScore
-      .join('')
-      .toUpperCase();
+    document.getElementById('currentWord').textContent = underScore.join('').toUpperCase();
     // Run next function to make changes based on wrong guesses by user.
     wrongGuess(letter);
   }
 }
 
-// This function will be used if userGuess does not match randWord
+// #This function will be used if userGuess does not match randWord
 function wrongGuess(letter) {
   // Need to make sure lowercase and uppercase value of userGuess is treated the same.
   if (
@@ -185,16 +135,14 @@ function wrongGuess(letter) {
     // Push wrong guess into array.
     userWrongGuess.push(letter);
     // Push changes from js to html.
-    document.getElementById('wrongGuess').textContent = userWrongGuess
-      .join(' ')
-      .toUpperCase();
+    document.getElementById('wrongGuess').textContent = userWrongGuess.join(' ').toUpperCase();
     document.getElementById('guessesRemaining').textContent = guessesLeft;
   }
   // Run next function to determine win or loss condition.
   checkWinLoss();
 }
 
-// This function checks whether we meet our win or loss condition.
+// #This function checks whether we meet our win or loss condition.
 function checkWinLoss() {
   // If randWord matches values of underScore after being converted to userGuess, give user a win.
   // Join used to treat underScore array as a string.
@@ -217,13 +165,13 @@ function checkWinLoss() {
       }, 3000);
     }
   }
-  // If user guesses drops to 0 reset game.
+  // If user guesses drops to 0 reset game
   else if (guessesLeft === 0) {
     main();
   }
 }
 
-// This function will add an image to html when called on
+// #This function will add an image to html when called on
 function objImages() {
   // Grab reference to element in html
   var objImageDiv = document.getElementById('objImage');
@@ -238,7 +186,7 @@ function objImages() {
   objImageDiv.appendChild(imageElement);
 }
 
-// This function will play music after a win condition is met.
+// #This function will play music after a win condition is met
 function objSound() {
   // Grab reference to element in html
   var audioElement = document.getElementById('objSound');
@@ -248,6 +196,7 @@ function objSound() {
   audioElement.autoplay = true;
 }
 
+// #This function will create a reset button when word bank is empty
 function restart() {
   // Grab reference to html
   var objImageDiv = document.getElementById('restart');
@@ -256,7 +205,7 @@ function restart() {
   restartButton.setAttribute('id', 'restart');
   restartButton.textContent = 'Play Again';
   restartButton.addEventListener('click', function() {
-    restartButton.innerHTML = '';
+    objImageDiv.removeChild(restartButton);
     reset();
     main();
   });
@@ -264,6 +213,7 @@ function restart() {
   objImageDiv.appendChild(restartButton);
 }
 
+// #This function will reset the wordBank and set wins back to 0
 function reset() {
   wordBank = [
     akuma,
@@ -280,7 +230,7 @@ function reset() {
     mBison,
     ryu,
     sagat,
-    thawk,
+    tHawk,
     vega,
     zangief
   ];
@@ -288,8 +238,8 @@ function reset() {
   wins = 0;
 }
 
-// EVENT HANDLERS
-//===================================================================
+//*EVENT HANDLERS
+//*===================================================================
 // Onkeyup function will pass to letter input argument to compareUserInput parameter.
 document.onkeyup = function(event) {
   // Only stores values from A to Z
