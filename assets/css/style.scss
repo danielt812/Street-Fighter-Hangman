@@ -2,16 +2,18 @@
 $primary: #f8f403;
 $secondary: #dd1226;
 $reset: #ffffff;
+$background: #000000;
 
 // Import Font
 @font-face {
   font-family: sf_font;
-  src: url('../fonts/sf_font.woff2') format('woff2'), url('..fonts/sf_font.woff') format('woff');
+  src: url('../fonts/sf_font.woff2') format('woff2'),
+    url('..fonts/sf_font.woff') format('woff');
 }
 
 body {
   font-family: sf_font;
-  background-color: black;
+  background-color: $background;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -37,6 +39,17 @@ h2 {
 .row {
   width: 100%;
   margin: 0;
+}
+
+.game {
+  color: $reset;
+  margin-top: 14px;
+  font-size: 26px;
+  min-height: 40px;
+}
+
+.imgPng {
+  border-radius: 3rem;
 }
 
 .flex {
@@ -74,13 +87,6 @@ h2 {
 
 #logo {
   margin-top: 20px;
-}
-
-.game {
-  color: $reset;
-  margin-top: 14px;
-  font-size: 26px;
-  min-height: 40px;
 }
 
 #currentWord {
