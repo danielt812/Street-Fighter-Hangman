@@ -1,6 +1,6 @@
 @font-face {
   font-family: sf_font;
-  src: url("../fonts/sf_font.ttf") format("truetype"), url("../fonts/sf_font.woff2") format("woff2"), url("..fonts/sf_font.woff") format("woff"); }
+  src: url("../fonts/sf_font.woff2") format("woff2"), url("..fonts/sf_font.woff") format("woff"); }
 body {
   font-family: sf_font;
   background-color: black;
