@@ -6,9 +6,8 @@ $reset: #ffffff;
 // Import Font
 @font-face {
   font-family: sf_font;
-  src: url('/assets/fonts/sf_font.ttf') format('truetype'),
-    url('/assets/fonts/sf_font.woff2') format('woff2'),
-    url('/assets/fonts/sf_font.woff') format('woff');
+  src: url('../fonts/sf_font.ttf') format('truetype'), url('../fonts/sf_font.woff2') format('woff2'),
+    url('..fonts/sf_font.woff') format('woff');
 }
 
 body {
