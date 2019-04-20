@@ -1,42 +1,148 @@
 //*OBJECTS
 //*=================================================================
-function Fighter(display, name, image, sound) {
-  (this.display = display), (this.name = name), (this.image = image), (this.sound = sound);
+function Fighter(display, name, image, portrait, theme) {
+  (this.display = display),
+    (this.name = name),
+    (this.image = image),
+    (this.portrait = portrait),
+    (this.theme = theme);
 }
 
-var akuma = new Fighter('akuma', 'akuma', 'akumasprite.gif', 'akumamusic.mp3');
+var akuma = new Fighter(
+  'akuma',
+  'akuma',
+  'akumasprite.gif',
+  'akumaportrait.png',
+  'akumamusic.mp3'
+);
 
-var balrog = new Fighter('balrog', 'balrog', 'balrogsprite.gif', 'balrogmusic.mp3');
+var balrog = new Fighter(
+  'balrog',
+  'balrog',
+  'balrogsprite.gif',
+  'balrogportrait.png',
+  'balrogmusic.mp3'
+);
 
-var blanka = new Fighter('blanka', 'blanka', 'blankasprite.gif', 'blankamusic.mp3');
+var blanka = new Fighter(
+  'blanka',
+  'blanka',
+  'blankasprite.gif',
+  'blankaportrait.png',
+  'blankamusic.mp3'
+);
 
-var cammy = new Fighter('cammy', 'cammy', 'cammysprite.gif', 'cammymusic.mp3');
+var cammy = new Fighter(
+  'cammy',
+  'cammy',
+  'cammysprite.gif',
+  'cammyportrait.png',
+  'cammymusic.mp3'
+);
 
-var chunLi = new Fighter('chun li', 'chunli', 'chunlisprite.gif', 'chunlimusic.mp3');
+var chunLi = new Fighter(
+  'chun li',
+  'chunli',
+  'chunlisprite.gif',
+  'chunliportrait.png',
+  'chunlimusic.mp3'
+);
 
-var deeJay = new Fighter('dee jay', 'deejay', 'deejaysprite.gif', 'deejaymusic.mp3');
+var deeJay = new Fighter(
+  'dee jay',
+  'deejay',
+  'deejaysprite.gif',
+  'deejayportrait.png',
+  'deejaymusic.mp3'
+);
 
-var dhalsim = new Fighter('dhalsim', 'dhalsim', 'dhalsimsprite.gif', 'dhalsimmusic.mp3');
+var dhalsim = new Fighter(
+  'dhalsim',
+  'dhalsim',
+  'dhalsimsprite.gif',
+  'dhalsimportrait.png',
+  'dhalsimmusic.mp3'
+);
 
-var eHonda = new Fighter('e honda', 'ehonda', 'ehondasprite.gif', 'ehondamusic.mp3');
+var eHonda = new Fighter(
+  'e honda',
+  'ehonda',
+  'ehondasprite.gif',
+  'ehondaportrait.png',
+  'ehondamusic.mp3'
+);
 
-var feiLong = new Fighter('fei long', 'feilong', 'feilongsprite.gif', 'feilongmusic.mp3');
+var feiLong = new Fighter(
+  'fei long',
+  'feilong',
+  'feilongsprite.gif',
+  'feilongportrait.png',
+  'feilongmusic.mp3'
+);
 
-var guile = new Fighter('guile', 'guile', 'guilesprite.gif', 'guilemusic.mp3');
+var guile = new Fighter(
+  'guile',
+  'guile',
+  'guilesprite.gif',
+  'guileportrait.png',
+  'guilemusic.mp3'
+);
 
-var ken = new Fighter('ken', 'ken', 'kensprite.gif', 'kenmusic.mp3');
+var ken = new Fighter(
+  'ken',
+  'ken',
+  'kensprite.gif',
+  'kenportrait.png',
+  'kenmusic.mp3'
+);
 
-var mBison = new Fighter('m bison', 'mbison', 'mbisonsprite.gif', 'mbisonmusic.mp3');
+var mBison = new Fighter(
+  'm bison',
+  'mbison',
+  'mbisonsprite.gif',
+  'mbisonportrait.png',
+  'mbisonmusic.mp3'
+);
 
-var ryu = new Fighter('ryu', 'ryu', 'ryusprite.gif', 'ryumusic.mp3');
+var ryu = new Fighter(
+  'ryu',
+  'ryu',
+  'ryusprite.gif',
+  'ryuportrait.png',
+  'ryumusic.mp3'
+);
 
-var sagat = new Fighter('sagat', 'sagat', 'sagatsprite.gif', 'sagatmusic.mp3');
+var sagat = new Fighter(
+  'sagat',
+  'sagat',
+  'sagatsprite.gif',
+  'sagatportrait.png',
+  'sagatmusic.mp3'
+);
 
-var tHawk = new Fighter('t hawk', 'tHawk', 'thawksprite.gif', 'thawkmusic.mp3');
+var tHawk = new Fighter(
+  't hawk',
+  'tHawk',
+  'thawksprite.gif',
+  'thawkportrait.png',
+  'thawkmusic.mp3'
+);
 
-var vega = new Fighter('vega', 'vega', 'vegasprite.gif', 'vegamusic.mp3');
+var vega = new Fighter(
+  'vega',
+  'vega',
+  'vegasprite.gif',
+  'vegaportrait.png',
+  'vegamusic.mp3'
+);
 
-var zangief = new Fighter('zangief', 'zangief', 'zangiefsprite.gif', 'zangiefmusic.mp3');
+var zangief = new Fighter(
+  'zangief',
+  'zangief',
+  'zangiefsprite.gif',
+  'zangiefportrait.png',
+  'zangiefmusic.mp3'
+);
 
 //*GLOBAL VARIABLES
 //*================================================================
@@ -117,7 +223,9 @@ function compareUserInput(letter) {
       }
     }
     // Push changes from js to html.
-    document.getElementById('currentWord').textContent = underScore.join('').toUpperCase();
+    document.getElementById('currentWord').textContent = underScore
+      .join('')
+      .toUpperCase();
     // Run next function to make changes based on wrong guesses by user.
     wrongGuess(letter);
   }
@@ -135,7 +243,9 @@ function wrongGuess(letter) {
     // Push wrong guess into array.
     userWrongGuess.push(letter);
     // Push changes from js to html.
-    document.getElementById('wrongGuess').textContent = userWrongGuess.join(' ').toUpperCase();
+    document.getElementById('wrongGuess').textContent = userWrongGuess
+      .join(' ')
+      .toUpperCase();
     document.getElementById('guessesRemaining').textContent = guessesLeft;
   }
   // Run next function to determine win or loss condition.
@@ -149,14 +259,15 @@ function checkWinLoss() {
   if (randWordName.toLowerCase() === underScore.join('').toLowerCase()) {
     wins++;
     document.getElementById('gameWins').textContent = wins;
-    objImages();
-    objSound();
+    fighterImage();
+    fighterTheme();
     var completedWord = wordBank.indexOf(randWord);
     // Removes completed words from wordBank
     wordBank.splice(completedWord, 1);
     // Three seconds until next word available, Five seconds after game ends
     if (wins == totalWordBankLength) {
       setTimeout(function() {
+        fighterPortrait();
         restart();
       }, 5000);
     } else {
@@ -171,27 +282,42 @@ function checkWinLoss() {
   }
 }
 
-// #This function will add an image to html when called on
-function objImages() {
+// #This function will add fighter image to html when called on
+function fighterImage() {
   // Grab reference to element in html
-  var objImageDiv = document.getElementById('objImage');
+  var fighterImageDiv = document.getElementById('fighterImage');
   //Remove original image in this div
-  objImageDiv.innerHTML = '';
-  // Manipulate DOM to create image tag in html
+  fighterImageDiv.innerHTML = '';
+  // Manipulate DOM to create img tag in html
   var imageElement = document.createElement('img');
   imageElement.src = 'assets/images/' + randWord.image;
   imageElement.className = 'img-responsive imgGif';
   imageElement.alt = randWord.name;
   // Append image to html
-  objImageDiv.appendChild(imageElement);
+  fighterImageDiv.appendChild(imageElement);
+}
+
+// #This function will add fighter portrait to html when called on
+function fighterPortrait() {
+  // Grab reference to element in html
+  var fighterPortraitDiv = document.getElementById('fighterImage');
+  //Remove original Portrait in this div
+  fighterPortraitDiv.innerHTML = '';
+  // Manipulate DOM to create img tag in html
+  var PortraitElement = document.createElement('img');
+  PortraitElement.src = 'assets/images/' + randWord.portrait;
+  PortraitElement.className = 'img-responsive imgPng';
+  PortraitElement.alt = randWord.name;
+  //Append Portrait to html
+  fighterPortraitDiv.appendChild(PortraitElement);
 }
 
 // #This function will play music after a win condition is met
-function objSound() {
+function fighterTheme() {
   // Grab reference to element in html
-  var audioElement = document.getElementById('objSound');
-  // Link sound file to object
-  audioElement.src = 'assets/audio/' + randWord.sound;
+  var audioElement = document.getElementById('fighterTheme');
+  // Link audio file to object
+  audioElement.src = 'assets/audio/' + randWord.theme;
   // Set autoplay to true
   audioElement.autoplay = true;
 }
@@ -199,18 +325,18 @@ function objSound() {
 // #This function will create a reset button when word bank is empty
 function restart() {
   // Grab reference to html
-  var objImageDiv = document.getElementById('restart');
+  var restartDiv = document.getElementById('restart');
   // Manipulate DOM to create restart button
   var restartButton = document.createElement('h1');
   restartButton.setAttribute('id', 'restart');
   restartButton.textContent = 'Play Again';
   restartButton.addEventListener('click', function() {
-    objImageDiv.removeChild(restartButton);
+    restartDiv.removeChild(restartButton);
     reset();
     main();
   });
   // Append div to html
-  objImageDiv.appendChild(restartButton);
+  restartDiv.appendChild(restartButton);
 }
 
 // #This function will reset the wordBank and set wins back to 0
