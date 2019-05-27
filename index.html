@@ -1,57 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Street Fighter Hangman Game</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <link
-      rel="shortcut icon"
-      type="image/icon"
-      href="assets/images/logo-sf.ico"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <div class="flex">
-        <div class="row">
-          <div class="col-md-6 text-center" id="left">
-            <div id="fighterImage">
-              <img
-                id="logo"
-                src="assets/images/SFIILogo.png"
-                class="img-fluid"
-                alt="Responsive image"
-              />
-              <h2>Hangman Edition</h2>
-              <h1>Press any key to get started</h1>
-            </div>
-          </div>
-          <div class="col-md-6 text-center" id="right">
-            <div id="game">
-              <h2>Wins :</h2>
-              <div class="game" id="gameWins"></div>
-              <h2>Select Fighter :</h2>
-              <div class="game" id="currentWord"></div>
-              <h2>Guesses Remaining :</h2>
-              <div class="game" id="guessesRemaining"></div>
-              <h2>Letters Guessed :</h2>
-              <div class="game" id="wrongGuess"></div>
-              <audio id="fighterTheme"></audio>
-            </div>
+
+<head>
+  <title>Street Fighter Hangman Game</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="shortcut icon" type="image/icon" href="assets/images/logo-sf.ico" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="flex">
+      <div class="row">
+        <div class="col-md-6 text-center" id="left">
+          <div id="fighterImage">
+            <img id="logo" src="assets/images/SFIILogo.png" class="img-fluid" alt="Responsive image" />
+            <h2>Hangman Edition</h2>
+            <h1>Press any key to get started</h1>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-center" id="bottom">
-          <div id="restart"></div>
+        <div class="col-md-6 text-center" id="right">
+          <div id="game">
+            <h2>Wins :</h2>
+            <div class="game" id="gameWins"></div>
+            <h2>Select Fighter :</h2>
+            <div class="game" id="currentWord"></div>
+            <h2>Guesses Remaining :</h2>
+            <div class="game" id="guessesRemaining"></div>
+            <h2>Letters Guessed :</h2>
+            <div class="game" id="wrongGuess"></div>
+            <audio id="fighterTheme"></audio>
+          </div>
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
-  </body>
+    <div class="row">
+      <div class="col-md-12 text-center" id="bottom">
+        <div id="restart"></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
 </html>
